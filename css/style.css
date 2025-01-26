@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow: hidden;
+}
+
+.stand {
+    height: 600px;
+    width: 10px;
+    background-color: #964B00;
+    z-index: 100;
+    border-radius: 10px 10px 0 0;
+
+    &:nth-child(2) {
+        position: absolute;
+        border-radius: 10px 10px 0 0;
+        transform: translateX(-175px);
+        top: 700px;
+        height: 30px;
+        width: 70px;
+    }
+
+    &:nth-child(3) {
+        position: absolute;
+        transform: translateX(-175px);
+        top: 730px;
+        height: 30px;
+        width: 150px;
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(1deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.flag {
+    margin-top: 5px;
+    transform-origin: left center;
+    /* Pivot point for the wave */
+    animation: wave 1.5s infinite ease-in-out;
+    /* Apply the wave animation */
+}
+
+.saffron,
+.white,
+.green {
+    display: block;
+    /* Ensure the colors of the flag stack properly */
+    height: 70px;
+    width: 350px;
+    border-radius: 0 10px 0 0;
+    /* Rounded top right corner for each stripe */
+}
+
+.saffron {
+    background-color: #FF671F;
+}
+
+.white {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white img {
+    height: 90px;
+    width: 90px;
+}
+
+.green {
+    background-color: #046A38;
+    border-radius: 0 0 10px 0;
+}
+
+.grass {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    background-color: #07a156;
+    transform: translateY(660px);
+
+}
+
+.audio-toggle {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    padding: 10px 10px;
+    font-size: 20px;
+    background-color: #FF671F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-toggle:hover {
+    transform: scale(1.1);
+}
+
+.audio-toggle.playing {
+    background-color: #07a156;
+}
